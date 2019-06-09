@@ -72,7 +72,7 @@
         </div>
         </div></center>
     </form>
-    <form class="box" method="POST" action="register.php">
+    <form class="box" method="POST" action="index.php">
         <div class="row"><center>
             <div class="thumbnail">
                 <div class="col-sm-8 col-sm-offset-2">
