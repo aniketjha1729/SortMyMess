@@ -13,4 +13,6 @@
 .input-style{
     width: 100%;
 }
-
+.form-style{
+    border: 2px solid brown;
+}
