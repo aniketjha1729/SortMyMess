@@ -1,9 +1,16 @@
-.division-style1{
+.added{
+    width: 800px;
+    height: 800px;
+    display: flex;
+    justify-content:center;
+
+}
+.div-style{
     border: 2px solid blue;
+    width: 200px;
 }
-.division-style2{
-    border: 2px solid rgb(0, 225, 255);
+
+.input-style{
+    width: 100%;
 }
-.division-style3{
-    border: 2px solid rgb(255, 0, 191);
-}
+
