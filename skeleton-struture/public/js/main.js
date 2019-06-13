@@ -1,21 +1,24 @@
 function add() {
     var temp = document.getElementById("mySelect").value
-    var array_input=["Name","Email","Phone"]
+    var input_name=["Name","Email","Phone","Password"];
+    var input_type=["text","email","number","password"];
     var form=document.createElement("form");
     form.classList.add("form-style");
-    form.action="/post";
-    form.method="POST";
+    form.action="/register";
+    form.method="post";
     var button=document.createElement("button");
     button.classList.add("btn","btn-success");
+    button.type="Submit";
     button.appendChild(document.createTextNode("Submit"));
     for (var i = 0; i < temp; i++) {
         var divison = document.createElement("div");
         divison.classList.add("div-style");
-        for(var j=0;j<3;j++){
+        for(var j=0;j<4;j++){
             var inputfield=document.createElement("input");
-            inputfield.classList.add("input-style")
-            inputfield.placeholder=array_input[j];
-            inputfield.name=array_input[j].concat(i.toString());
+            inputfield.classList.add("input-style");
+            inputfield.setAttribute("type",input_type[j]);
+            inputfield.placeholder=input_name[j];
+            inputfield.name=input_name[j].concat(i.toString());
             divison.appendChild(inputfield);
         }
         form.appendChild(divison);
