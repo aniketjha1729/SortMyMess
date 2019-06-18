@@ -22,5 +22,7 @@ mongoose.connect("mongodb://localhost/Mess", { useNewUrlParser: true }, () => {
 
 const home = require('./routes/index');
 app.use('/', home);
+const member=require("./routes/member");
+app.use('/',member);
 
 app.listen(PORT, console.log(`Server is up-end running  ${PORT}`));

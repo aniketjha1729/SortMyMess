@@ -9,25 +9,9 @@ router.get('/', (req, res) => {
 router.post("/register",(req,res)=>{
     res.send("Working");
 });
-router.get("/new",(req,res)=>{
-    res.render("test1");
-});
-router.get("/member_reg",(req,res)=>{
-    res.render("memberreg");
-});
-router.get("/member_signin", (req, res) => {
-    res.render("membersigin");
-});
-router.post("/member_reg", (req, res) => {
-    res.send("memberreg");
-});
-router.post("/member_signin", (req, res) => {
-    res.send("membersigin");
-});
-
-router.post("/registermess",(req,res)=>{
-    const { messid, messname, password} = req.body;
-    User.findOne({messid:messid}).then(user => {
+router.post("/registermess", (req, res) => {
+    const { messid, messname, password } = req.body;
+    User.findOne({ messid: messid }).then(user => {
         if (user) {
             //errors.push({ msg: 'Email already exits' });
             res.send("MessId already exists");
@@ -37,7 +21,6 @@ router.post("/registermess",(req,res)=>{
                 messname,
                 password
             });
-
             bcrypt.genSalt(10, (err, salt) => {
                 bcrypt.hash(newUser.password, salt, (err, hash) => {
                     newUser.password = hash;
@@ -50,4 +33,5 @@ router.post("/registermess",(req,res)=>{
         }
     });
 });
+
 module.exports = router;
