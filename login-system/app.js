@@ -1,7 +1,7 @@
 const express=require('express');
 const app=express();
 const expressLayouts=require('express-ejs-layouts');
-const PORT=process.env.PORT||3000;
+const PORT=process.env.PORT||8000;
 const mongoose=require('mongoose');
 const flash=require('connect-flash');
 const session=require('express-session');
