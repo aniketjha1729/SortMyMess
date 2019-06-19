@@ -5,19 +5,50 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const methodOverrid = require('method-override');
 const mongoose=require("mongoose");
+const flash = require('connect-flash');
+const session = require('express-session');
+const passport=require('passport');
+
+
 const PORT = process.env.PORT || 1234;
+
+mongoose.connect("mongodb://localhost/Mess", { useNewUrlParser: true }, () => {
+  console.log("Database Connected");
+});
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(methodOverrid('_method'));
-app.engine('handlebars', exphbs({ defaultLayout: ''}));
+
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(flash());
+
+
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+
+})
+
+
+
+
+app.engine('handlebars', exphbs({ defaultLayout: 'layout'}));
 app.set('view engine', 'handlebars');
 
 
-mongoose.connect("mongodb://localhost/Mess", { useNewUrlParser: true }, () => {
-  console.log("Database Connected");
-});
+
 
 
 const home = require('./routes/index');

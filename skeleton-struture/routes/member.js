@@ -10,17 +10,16 @@ router.get("/member_signin", (req, res) => {
     res.render("membersigin");
 });
 router.post("/member_reg", (req, res) => {
-    const messid1=req.body.messid1;
+    const {messid1, name, email, phone, password } = req.body;
     User.findOne({messid:messid1}).then(user=>{
         if(user){
-            const { name, email, phone, password } = req.body;
             Member.findOne({email:email}).then(user1=>{
                 if(user1){
                     res.send("Member Already exists")
                 }else{
                    // res.send("correct")
                     const newUser = new Member({
-                        name, email, phone, password
+                        messid1,name, email, phone, password
                     });
                     bcrypt.genSalt(10, (err, salt) => {
                         bcrypt.hash(newUser.password, salt, (err, hash) => {
