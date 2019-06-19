@@ -1,5 +1,12 @@
 
     <div class="container">
+        {{#if success_msg}}
+        <div class="alert alert-success">
+            {{success_msg}}
+        </div>
+        {{/if}}
+
+
         <form action="/member_reg" method="POST">
             <div class="form-group">
                 <label for="exampleInputEmail1">MessId</label>

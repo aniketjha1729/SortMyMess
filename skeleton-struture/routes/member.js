@@ -25,8 +25,9 @@ router.post("/member_reg", (req, res) => {
                         bcrypt.hash(newUser.password, salt, (err, hash) => {
                             newUser.password = hash;
                             newUser.save().then(savedUser => {
-                                //req.flash('success_msg', 'Yor are now registered,please login');
-                                res.send("success");
+                                req.flash('success_msg', 'Yor are now registered,please login');
+                                // res.send("success");
+                                res.redirect('member_signin');
                             });
                         });
                     });
