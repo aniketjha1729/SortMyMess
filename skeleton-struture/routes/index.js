@@ -25,8 +25,8 @@ router.post("/registermess", (req, res) => {
                 bcrypt.hash(newUser.password, salt, (err, hash) => {
                     newUser.password = hash;
                     newUser.save().then(savedUser => {
-                        //req.flash('success_msg', 'Yor are now registered,please login');
-                        res.render("index");
+                        req.flash('success_msg', 'Your mess has been successfully Registered,Please fill the follwing Details');
+                        res.redirect("member_reg");
                     })
                 })
             })

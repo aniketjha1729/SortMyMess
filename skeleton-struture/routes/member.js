@@ -3,6 +3,8 @@ const router = express.Router();
 const Member = require("../models/members");
 const User=require("../models/user");
 const bcrypt = require("bcryptjs");
+
+
 router.get("/member_reg", (req, res) => {
     res.render("memberreg");
 });
@@ -15,7 +17,9 @@ router.post("/member_reg", (req, res) => {
         if(user){
             Member.findOne({email:email}).then(user1=>{
                 if(user1){
-                    res.send("Member Already exists")
+                    req.flash("error_msg",'Member alredy exists');
+                    res.redirect("member_reg");
+                    // res.send("Member Already exists")
                 }else{
                    // res.send("correct")
                     const newUser = new Member({
@@ -26,7 +30,6 @@ router.post("/member_reg", (req, res) => {
                             newUser.password = hash;
                             newUser.save().then(savedUser => {
                                 req.flash('success_msg', 'Yor are now registered,please login');
-                                // res.send("success");
                                 res.redirect('member_signin');
                             });
                         });
