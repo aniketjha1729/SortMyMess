@@ -5,6 +5,7 @@ const User=require("../models/user");
 const bcrypt = require("bcryptjs");
 const passport=require('passport');
 const LocalStrategy=require('passport-local').Strategy;
+const { ensureAuthenticated } = require('../config/auth');
 
 router.get("/member_reg", (req, res) => {
     res.render("memberreg");
@@ -43,10 +44,15 @@ router.post("/member_reg", (req, res) => {
     })
 });
 
-router.get("/dashboard",(req,res)=>{
-    res.render("dashboard");
-})
-
+router.get('/dashboard', ensureAuthenticated, (req, res) =>
+    Member.find({}).then(members=>{
+        res.render('dashboard', {
+            members:members,
+            name: req.user.name,
+            messid: req.user.messid1
+        });
+    })
+)
 
 
 passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
