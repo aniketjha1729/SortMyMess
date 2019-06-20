@@ -3,7 +3,8 @@ const router = express.Router();
 const Member = require("../models/members");
 const User=require("../models/user");
 const bcrypt = require("bcryptjs");
-
+const passport=require('passport');
+const LocalStrategy=require('passport-local').Strategy;
 
 router.get("/member_reg", (req, res) => {
     res.render("memberreg");
@@ -42,7 +43,44 @@ router.post("/member_reg", (req, res) => {
     })
 });
 
-router.post("/member_signin", (req, res) => {
-    res.send("membersigin");
+router.get("/dashboard",(req,res)=>{
+    res.render("dashboard");
+})
+
+
+
+passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+
+    Member.findOne({ email: email }).then(user => {
+        if (!user) return done(null, false, { message: 'No User found' });
+
+        bcrypt.compare(password, user.password, (err, matched) => {
+            if (err) return err;
+
+            if (matched) {
+                return done(null, user)
+            } else {
+                return done(null, false, { message: 'Incorrect password' });
+            }
+        })
+    })
+}));
+
+passport.serializeUser(function (user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function (id, done) {
+    Member.findById(id, function (err, user) {
+        done(err, user);
+    });
+});
+
+router.post("/member_signin", (req, res,next) => {
+    passport.authenticate('local', {
+        successRedirect: '/dashboard',
+        failureRedirect: '/login',
+        failureFlash: 'true'
+    })(req, res, next);
 });
 module.exports = router;

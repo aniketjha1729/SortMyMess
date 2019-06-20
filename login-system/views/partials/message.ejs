@@ -8,8 +8,6 @@
         </div>
     <% }); %>    
 <% } %>
-
-
 <%if(success_msg!=''){%>
     <div class="alert alert-sucess alert-dismissible fade show" role="alert">
            <h5> <%= success_msg %></h5>
@@ -19,8 +17,6 @@
         </div>
 
 <%}%>
-
-
 <%if(error!=''){%>
 <div class="alert alert-sucess alert-dismissible fade show" role="alert">
     <h5>
@@ -30,10 +26,7 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-
 <%}%>
-
-
 <%if(error_msg!=''){%>
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
            <h5> <%= error_msg %></h5>
