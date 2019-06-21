@@ -1,8 +1,17 @@
 <div class="container">
-    {{name}}
-    {{#each members}}
+  Welcome {{name}}
+    <form action="/showmember" method="post">
+        <input type="hidden" value="{{messid}}" name="messid">
+        <button type="submit">Show</button>
+    </form>
+    {{!-- {{#each mem}}
     <div>
-        {{messid1}}
+        {{mem.messid1}}
     </div>
-    {{/each}}
+    {{/each}} --}}
+    <div>
+        {{#each mem}}
+        <div>{{email}}</div>
+        {{/each}}
+    </div>
 </div>

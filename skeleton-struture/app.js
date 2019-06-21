@@ -10,8 +10,6 @@ const session = require('express-session');
 const passport=require('passport');
 
 
-const PORT = process.env.PORT || 1234;
-
 mongoose.connect("mongodb://localhost/Mess", { useNewUrlParser: true }, () => {
   console.log("Database Connected");
 });
@@ -27,33 +25,31 @@ app.use(session({
   saveUninitialized: true
 }));
 
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(flash());
-
-
 app.use((req, res, next) => {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error");
   next();
+});
 
-})
-
-
-
-
-app.engine('handlebars', exphbs({ defaultLayout: 'layout'}));
+app.engine('handlebars', exphbs({ defaultLayout: 'layout' }));
 app.set('view engine', 'handlebars');
 
-
-
-
-
-const home = require('./routes/index');
-app.use('/', home);
+const home=require("./routes/index");
 const member=require("./routes/member");
-app.use('/',member);
+const abc = require("./routes/abc");
+
+
+app.use("/", home);
+app.use("/", member);
+app.use("/", abc);
+
+
+
+const PORT = process.env.PORT || 8000 ;
 
 app.listen(PORT, console.log(`Server is up-end running  ${PORT}`));

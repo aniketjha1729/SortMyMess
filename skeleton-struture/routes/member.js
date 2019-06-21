@@ -44,15 +44,17 @@ router.post("/member_reg", (req, res) => {
     })
 });
 
-router.get('/dashboard', ensureAuthenticated, (req, res) =>
-    Member.find({}).then(members=>{
+router.get('/dashboard', ensureAuthenticated, (req, res) =>{
+    // const messid2=req.body.messid2;
+        //console.log(mem);
         res.render('dashboard', {
-            members:members,
+            //mem:mem,
+            email:req.user.email,
             name: req.user.name,
             messid: req.user.messid1
         });
-    })
-)
+   
+})
 
 
 passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
@@ -83,10 +85,13 @@ passport.deserializeUser(function (id, done) {
 });
 
 router.post("/member_signin", (req, res,next) => {
-    passport.authenticate('local', {
-        successRedirect: '/dashboard',
-        failureRedirect: '/login',
-        failureFlash: 'true'
-    })(req, res, next);
+    Member.find({messid1:req.body.messid2}).then(mem=>{
+        console.log(mem.length);
+        passport.authenticate("local", {
+          successRedirect: "/dashboard",
+          failureRedirect: "/member_signin",
+          failureFlash: "true"
+        })(req, res, next);
+    })  
 });
 module.exports = router;
