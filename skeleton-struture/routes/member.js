@@ -45,11 +45,7 @@ router.post("/member_reg", (req, res) => {
 });
 
 router.get('/dashboard', ensureAuthenticated, (req, res) =>{
-    // const messid2=req.body.messid2;
-        //console.log(mem);
         res.render('dashboard', {
-            //mem:mem,
-            email:req.user.email,
             name: req.user.name,
             messid: req.user.messid1
         });
@@ -85,13 +81,20 @@ passport.deserializeUser(function (id, done) {
 });
 
 router.post("/member_signin", (req, res,next) => {
-    Member.find({messid1:req.body.messid2}).then(mem=>{
-        console.log(mem.length);
-        passport.authenticate("local", {
-          successRedirect: "/dashboard",
-          failureRedirect: "/member_signin",
-          failureFlash: "true"
-        })(req, res, next);
-    })  
+    messid2=req.body.messid2;
+    //console.log(messid2);
+    User.findOne({messid:messid2}).then(pass=>{
+        if(pass){
+            passport.authenticate("local", {
+                successRedirect: "/dashboard",
+                failureRedirect: "/member_signin",
+                failureFlash: "true"
+            })(req, res, next);  
+        }else{
+            req.flash('error_msg',"MessId does not exits");
+            res.redirect('member_signin');
+        }   
+    })
+        
 });
 module.exports = router;
