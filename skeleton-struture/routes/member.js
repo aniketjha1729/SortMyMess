@@ -82,7 +82,6 @@ passport.deserializeUser(function (id, done) {
 
 router.post("/member_signin", (req, res,next) => {
     messid2=req.body.messid2;
-    //console.log(messid2);
     User.findOne({messid:messid2}).then(pass=>{
         if(pass){
             passport.authenticate("local", {

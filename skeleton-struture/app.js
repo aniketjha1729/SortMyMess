@@ -41,12 +41,12 @@ app.set('view engine', 'handlebars');
 
 const home=require("./routes/index");
 const member=require("./routes/member");
-const abc = require("./routes/abc");
+const dashboard = require("./routes/dashboard");
 
 
 app.use("/", home);
 app.use("/", member);
-app.use("/", abc);
+app.use("/", dashboard);
 
 
 
