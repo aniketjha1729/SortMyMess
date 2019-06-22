@@ -4,8 +4,12 @@ const Member = require("../models/members");
 
 router.post("/showmember",(req,res)=>{
     messid=req.body.messid;
+    email=req.body.email;
     Member.find({messid1:messid}).then(mem=>{
-        res.render("dashboard", { mem:mem });
+        Member.find({email:email}).then(mem1=>{
+            res.render("dashboard", { mem: mem,mem1:mem1});
+        })
+        
     })
 });
 router.get('/logout', (req, res) => {

@@ -1,7 +1,8 @@
 <div class="container">
-  Welcome {{name}}
+  Welcome {{name}}{{#each mem1}}{{name}}{{/each}}
     <form action="/showmember" method="post">
         <input type="hidden" value="{{messid}}" name="messid">
+        <input type="hidden" value="{{email}}" name="email">
         <button type="submit">Show</button>
     </form>
     <a href="/logout"><button type="submit" class="btn btn-danger">Logout</button></a>
@@ -9,5 +10,32 @@
         {{#each mem}}
         <div>{{email}}</div>
         {{/each}}
+    </div>
+    <div class="col-sm-8">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th colspan="2">Phone</th>
+    
+                </tr>
+            </thead>
+            <tbody>
+                {{#each mem}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{email}}</td>
+                    <td>{{phone}}</td>
+                    <td><a href="/admin/categories/edit/{{id}}" class="btn btn-info">Edit</a></td>
+                    <td>
+                        <form action="/admin/categories/{{id}}?_method=DELETE" method="post">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
     </div>
 </div>
