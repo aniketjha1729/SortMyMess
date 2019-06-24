@@ -1,36 +1,42 @@
 <div class="container">
-  Welcome {{name}}{{#each mem1}}{{name}}{{/each}}
+  Welcome {{name}}
+  {{#each mem1}}{{name}}<a href="/edit/{{id}}" class="btn btn-info">Add Items</a></td>{{/each}}
     <form action="/showmember" method="post">
         <input type="hidden" value="{{messid}}" name="messid">
         <input type="hidden" value="{{email}}" name="email">
-        <button type="submit">Show</button>
+        <button type="submit" class="btn btn-success">Show Members</button>
     </form>
-    <a href="/logout"><button type="submit" class="btn btn-danger">Logout</button></a>
+    <br>
+    <a href="/logout"><button type="submit" class="btn btn-danger">Logout</button></a><br><br><br>
     <div class="col-sm-8">
         <table class="table">
             <thead>
                 <tr>
+                    <th>MessId</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th colspan="2">Phone</th>
-    
+                    <th>Phone</th>
+                    <th>Phone</th>
                 </tr>
             </thead>
             <tbody>
                 {{#each mem}}
                 <tr>
+                    <td>{{messid1}}</td>
                     <td>{{name}}</td>
                     <td>{{email}}</td>
                     <td>{{phone}}</td>
-                    <td><a href="/admin/categories/edit/{{id}}" class="btn btn-info">Edit</a></td>
                     <td>
-                        <form action="/admin/categories/{{id}}?_method=DELETE" method="post">
+                    {{!-- <td><a href="/edit/{{id}}" class="btn btn-info">Add Items</a></td> --}}
+                    {{!-- <td>
+                        <form action="/delete/{{id}}?_method=DELETE" method="post">
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
-                    </td>
+                    </td> --}}
                 </tr>
                 {{/each}}
             </tbody>
         </table>
     </div>
+    <div>
 </div>

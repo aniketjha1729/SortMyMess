@@ -48,7 +48,8 @@ router.get('/dashboard', ensureAuthenticated, (req, res) =>{
         res.render('dashboard', {
             name: req.user.name,
             messid: req.user.messid1,
-            email:req.user.email
+            email:req.user.email,
+            id:req.user.id
         });
    
 })
