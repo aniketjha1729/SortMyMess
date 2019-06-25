@@ -45,12 +45,22 @@ router.post("/member_reg", (req, res) => {
 });
 
 router.get('/dashboard', ensureAuthenticated, (req, res) =>{
-        res.render('dashboard', {
-            name: req.user.name,
-            messid: req.user.messid1
-        });
+    const memberUser=req.user.messid1;
+    Member.find({ messid1: memberUser }).then(memberUser=>{
+        User.find({}).then(mess=>{
+            res.render("dashboard", {
+                name: req.user.name,
+                messid: req.user.messid1,
+                email: req.user.email,
+                idUser: req.user.id,
+                memberUser: memberUser,
+                mess:mess
+            });
+        })         
+    })
+});
    
-})
+
 
 
 passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
