@@ -1,13 +1,8 @@
 <div class="container">
-  Welcome {{name}}
-  {{#each mem1}}{{name}}<a href="/edit/{{id}}" class="btn btn-info">Add Items</a></td>{{/each}}
-    <form action="/showmember" method="post">
-        <input type="hidden" value="{{messid}}" name="messid">
-        <input type="hidden" value="{{email}}" name="email">
-        <button type="submit" class="btn btn-success">Show Members</button>
-    </form>
-    <br>
-    <a href="/logout"><button type="submit" class="btn btn-danger">Logout</button></a><br><br><br>
+  Welcome {{name}} <br>
+    <a href="/logout"><button type="submit" class="btn btn-danger">Logout</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    {{!-- <a href="/show/{{idUser}}" class="btn btn-success" id="edit">Edit Data</a> --}}
+    <button id="myBtn" onclick="editmodal()">Add</button>
     <div class="col-sm-8">
         <table class="table">
             <thead>
@@ -15,28 +10,37 @@
                     <th>MessId</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Phone</th>
-                    <th>Phone</th>
+                    <th>Phone</th> 
                 </tr>
             </thead>
             <tbody>
-                {{#each mem}}
-                <tr>
-                    <td>{{messid1}}</td>
-                    <td>{{name}}</td>
-                    <td>{{email}}</td>
-                    <td>{{phone}}</td>
-                    <td>
-                    {{!-- <td><a href="/edit/{{id}}" class="btn btn-info">Add Items</a></td> --}}
-                    {{!-- <td>
-                        <form action="/delete/{{id}}?_method=DELETE" method="post">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td> --}}
-                </tr>
+                {{#each memberUser}}
+                    <tr>
+                        <td>{{messid1}}</td>
+                        <td>{{name}}</td>
+                        <td>{{email}}</td>
+                        <td>{{phone}}</td>
+                    </tr>
                 {{/each}}
             </tbody>
         </table>
     </div>
-    <div>
+</div>
+<div id="edit" class="modal">
+    <div class="modal-content">
+        <span class="close2">&times;</span>
+        <div class="container">
+            <form action="/edit/{{idUser}}" method="POST">
+                <div class="form-group">
+                    <label for="Item Name">Item Name</label>
+                    <input type="text" class="form-control" placeholder="Item Name">
+                </div>
+                <div class="form-group">
+                    <label for="Price">Price</label>
+                    <input type="number" class="form-control"  placeholder="Price">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
 </div>
