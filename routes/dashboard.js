@@ -13,6 +13,7 @@ router.post('/edit', (req, res) => {
     Member.findOne({ _id: req.body.idUser }).then(data => {
             //console.log(data);
             const newData=new Data({
+                user:req.user.id,
                 item:req.body.itemName,
                 price:req.body.price
             })
