@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Member = require("../models/members");
-const User = require("../models/user");
+const User = require("../models/mess");
 const Data=require("../models/datas");
 
 router.get('/logout', (req, res) => {
@@ -10,28 +10,29 @@ router.get('/logout', (req, res) => {
     res.redirect("/member_signin");
 });
 router.post('/edit', (req, res) => {
-    Member.findOne({ _id: req.body.idUser }).then(data => {
-            //console.log(data);
-            const newData=new Data({
-                user:req.user.id,
-                item:req.body.itemName,
-                price:req.body.price
-            })
-        data.member.push(newData);
-        data.save().then(savedId => {
-            newData.save().then(savedDatas => {
+    Data.findOne({emailId: req.body.idUser}).then(data => {
+        //console.log(data);
+        //console.log(parseInt(req.body.itemPrice))
+            // const itemData=new Data({
+            //     item:req.body.itemName
+            // });
+            // const priceData=new Data({
+            //     price:(parseInt(req.body.itemPrice))
+            // })
+        data.item.push(req.body.itemName);
+        data.price.push(req.body.itemPrice);
+
+        data.save().then(savedData => {
                 req.flash('success_msg', "Items Successfully Added");
                 res.redirect("dashboard");
-            })
+        
         })
             
     });
 });
-// router.post("/edit/:id",(req,res)=>{
-//     const id=req.params.id;
-//     console.log(id);
-//     res.send("Working");
-// })
+router.post("/close",(req,res)=>{
+    res.send("Working");
+})
 router.get("/show",(req,res)=>{
     
         res.redirect("/dashboard");  

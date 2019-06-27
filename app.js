@@ -10,7 +10,7 @@ const session = require('express-session');
 const passport=require('passport');
 
 
-mongoose.connect("mongodb://localhost/Mess", { useNewUrlParser: true }, () => {
+mongoose.connect("mongodb://localhost/Mess1", { useNewUrlParser: true }, () => {
   console.log("Database Connected");
 });
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -50,6 +50,6 @@ app.use("/", dashboard);
 
 
 
-const PORT = process.env.PORT || 4444 ;
+const PORT = process.env.PORT || 4000 ;
 
 app.listen(PORT, console.log(`Server is up-end running  ${PORT}`));
