@@ -21,12 +21,8 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    member:[{
-        type:Schema.Types.ObjectId,
-        ref: 'datas'
-    }]
-}, { usePushEach: true });
+});
 
-const Member = mongoose.model('Member', UserSchema);
+const member = mongoose.model('member', UserSchema);
 
-module.exports = Member;
+module.exports = member;

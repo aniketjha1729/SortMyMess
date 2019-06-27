@@ -1,7 +1,7 @@
 <div class="container">
-  Welcome {{name}} <br>
+  Welcome {{name}}<br>
     <a href="/logout"><button type="submit" class="btn btn-danger">Logout</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
-    {{!-- <a href="/show/{{idUser}}" class="btn btn-success" id="edit">Edit Data</a> --}}
+   
     {{#if success_msg}}
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{success_msg}}
@@ -10,7 +10,11 @@
         </button>
     </div>
     {{/if}}
+    
     <button id="myBtn" onclick="editmodal()">Add</button>
+    <button id="myBtn1" onclick="showmodal()">Show</button>
+    
+    
     <div class="col-sm-8">
         <table class="table">
             <thead>
@@ -34,23 +38,52 @@
             </tbody>
         </table>
     </div>
-</div>
-<div id="edit" class="modal">
-    <div class="modal-content">
-        <span class="close2">&times;</span>
-        <div class="container">
-            <form action="/edit" method="POST">
-                <div class="form-group">
-                    <label for="Item Name">Item Name</label>
-                    <input type="text" class="form-control" placeholder="Item Name" name="itemName">
-                    <input type="hidden" name="idUser" value="{{idUser}}">
-                </div>
-                <div class="form-group">
-                    <label for="Price">Price</label>
-                    <input type="number" class="form-control"  placeholder="Price" name="price">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+
+
+    <div id="show" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="col-sm-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Items</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each dataUser}}
+                        <tr>
+                            <td>{{nameId}}</td>
+                            <td>{{item}}</td>
+                            <td>{{price}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="edit" class="modal">
+        <div class="modal-content">
+            <span class="close2">&times;</span>
+                <form action="/edit" method="POST">
+                    <div class="form-group">
+                        <label for="Item Name">Item Name</label>
+                        <input type="text" class="form-control" placeholder="Item Name" name="itemName">
+                        <input type="hidden" name="idUser" value="{{email}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="Price">Price</label>
+                        <input type="number" class="form-control"  placeholder="Price" name="itemPrice">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
         </div>
     </div>
 </div>
