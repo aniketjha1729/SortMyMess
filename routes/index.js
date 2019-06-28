@@ -33,5 +33,4 @@ router.post("/registermess", (req, res) => {
         }
     });
 });
-
 module.exports = router;

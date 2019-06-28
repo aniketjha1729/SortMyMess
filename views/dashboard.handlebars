@@ -10,10 +10,13 @@
         </button>
     </div>
     {{/if}}
-    
+    {{!-- {{#each memberTotal}}
+      <div>  {{values}} </div>
+      <div>  {{name}} </div>
+    {{/each}} --}}
     <button id="myBtn" onclick="editmodal()">Add</button>
     <button id="myBtn1" onclick="showmodal()">Show</button>
-    
+    <button id="myBtn2" onclick="calculatemodal()">Calculte</button>
     
     <div class="col-sm-8">
         <table class="table">
@@ -41,7 +44,7 @@
 
 
     <div id="show" class="modal">
-        <div class="modal-content">
+        <div class="modal-content1">
             <span class="close">&times;</span>
             <div class="col-sm-8">
                 <table class="table">
@@ -58,6 +61,32 @@
                             <td>{{nameId}}</td>
                             <td>{{item}}</td>
                             <td>{{price}}</td>
+                           
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="calculate" class="modal">
+        <div class="modal-content2">
+            <span class="close3">&times;</span>
+            <div class="col-sm-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Total Expense</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each memberTotal}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{values}}</td>
                         </tr>
                         {{/each}}
                     </tbody>

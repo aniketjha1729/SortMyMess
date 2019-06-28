@@ -38,6 +38,21 @@
   width: 50%;
 }
 
+.modal-content2 {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+.modal-content1 {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
 /* The Close Button */
 .close2 {
   color: #aaaaaa;
@@ -64,6 +79,22 @@
 
 .close:hover,
 .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.close3 {
+  color: #aaaaaa;
+  margin-left: 95%;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+
+.close3:hover,
+.close3:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;

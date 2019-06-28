@@ -55,31 +55,45 @@ router.post("/member_reg", (req, res) => {
 router.get('/dashboard', ensureAuthenticated, (req, res) =>{
     const memberUser=req.user.messid1;
     const memberUser1=req.user.messid1;
+    var test=120;
     Member.find({ messid1: memberUser }).then(memberUser=>{
         Data.find({userId:memberUser1}).then(dataUser=>{
+            var memberTotal = [];
+            for (var i = 0; i < dataUser.length; i++) {
+                var sum = 0
+                for (var j = 0; j < dataUser[i].price.length; j++) {
+                    sum = sum + dataUser[i].price[j];
+                }
+                memberTotal.push({values:sum,name:dataUser[i].nameId});
+            }
+            // console.log(memberTotal);
             res.render("dashboard", {
                 name: req.user.name,
                 messid: req.user.messid1,
                 email: req.user.email,
                 idUser: req.user.id,
                 memberUser: memberUser,
-                dataUser:dataUser
+                dataUser:dataUser,
+                memberTotal:memberTotal
             });
+            // console.log((memberUser[0].email));
+            // console.log(dataUser[0].item[0]);
+            
+            //console.log(dataUser.length);
+            //console.log(dataUser[0].item.length);
+            //console.log(dataUser[1].item.length);
+            
+            // console.log(memberUser);
+            // console.log(dataUser);
+            //res.send("Working");
         });
     })
-});
-   
-
-
-
+});   
 passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-
     Member.findOne({ email: email }).then(user => {
         if (!user) return done(null, false, { message: 'No User found' });
-
         bcrypt.compare(password, user.password, (err, matched) => {
             if (err) return err;
-
             if (matched) {
                 return done(null, user)
             } else {
@@ -88,17 +102,14 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
         })
     })
 }));
-
 passport.serializeUser(function (user, done) {
     done(null, user.id);
 });
-
 passport.deserializeUser(function (id, done) {
     Member.findById(id, function (err, user) {
         done(err, user);
     });
 });
-
 router.post("/member_signin", (req, res,next) => {
     messid2=req.body.messid2;
     User.findOne({messid:messid2}).then(pass=>{
@@ -112,7 +123,6 @@ router.post("/member_signin", (req, res,next) => {
             req.flash('error_msg',"MessId does not exits");
             res.redirect('member_signin');
         }   
-    })
-        
+    })      
 });
 module.exports = router;
