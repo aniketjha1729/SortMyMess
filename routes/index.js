@@ -13,7 +13,6 @@ router.post("/registermess", (req, res) => {
     const { messid, messname, password } = req.body;
     User.findOne({ messid: messid }).then(user => {
         if (user) {
-            //errors.push({ msg: 'Email already exits' });
             res.send("MessId already exists");
         } else {
             const newUser = new User({
