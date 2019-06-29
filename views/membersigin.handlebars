@@ -1,41 +1,68 @@
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-        {{#if success_msg}}
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{success_msg}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        {{/if}}
-        {{#if error_msg}}
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{error_msg}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        {{/if}}
-        {{#if message}}
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{message}}
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        <a href="index.handlebars" class="navbar-brand"> About <i class="fab fa-connectdevelop"></i></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-nav-demo">
+            <ul class="nav navbar-nav navbar-right navStyle">
+                <li><a href="/">Registration <i class="fas fa-users"></i></a></li>
+                <li><a href="/member_reg">Add <i class="fas fa-user-plus"></i></a></li>
+                <li class="active"><a href="/member_signin">L<i class="far fa-smile"></i>GIN <i class="fas fa-sign-in-alt"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    {{#if success_msg}}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{success_msg}}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        {{/if}}
-        <form action="/member_signin" method="post">
-            <div class="form-group">
-                <label for="exampleInputPassword1">Email</label>
-                <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Email" name="email">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">MessId</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="MessId" name="messid2">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
-            </div>
-            <button type="submit" class="btn btn-primary">SignIn</button>
-        </form>
+    {{/if}}
+    {{#if error_msg}}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{error_msg}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {{/if}}
+    {{#if message}}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
+    {{/if}}
+    <form class="box" action="/member_signin" method="post" onsubmit="Mmessage()">
+        <center>
+            <div class="row col-sm-8 col-sm-offset-2 thumbnail">
+                <label class="label" for="exampleInputPassword1">Email</label>
+                <input required type="email" class="form-control input" id="exampleInputPassword1" placeholder="Enter your email id..." name="email">
+            </div>
+            <div class="row col-sm-8 col-sm-offset-2 thumbnail">
+                <label class="label" for="exampleInputPassword1">MessId</label>
+                <input required type="text" class="form-control input" id="exampleInputPassword1" placeholder="Enter your MessID..." name="messid2">
+            </div>
+            <div class="row col-sm-8 col-sm-offset-2 thumbnail">
+                <label class="label" for="exampleInputPassword1">Password</label>
+                <input required type="password" class="form-control input" id="exampleInputPassword1" placeholder="Enter your password..." name="password">
+            </div>
+            <div class="row col-sm-8 col-sm-offset-2">
+                <button type="submit" class="btn btn1">L<i class="far fa-smile"></i>GIN <i class="fas fa-sign-in-alt"></i></button>
+            </div>
+        </center>
+    </form>
+</div>

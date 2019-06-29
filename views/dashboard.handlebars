@@ -1,7 +1,26 @@
-<div class="container">
-  Welcome {{name}}<br>
-    <a href="/logout"><button type="submit" class="btn btn-danger">Logout</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
-   
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        <a href="index.handlebars" class="navbar-brand"> About <i class="fab fa-connectdevelop"></i></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-nav-demo">
+            <ul class="nav navbar-nav navbar-right navStyle">
+                <li><a class="navbar-brand" href="#">Welcome {{name}}</a></li>
+                <li><a href="/logout">Logout <i class="fas fa-sign-out-alt"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container" style="color: white;">
     {{#if success_msg}}
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{success_msg}}
@@ -10,11 +29,10 @@
         </button>
     </div>
     {{/if}}
-    
-    <button id="myBtn" onclick="editmodal()">Add</button>
-    <button id="myBtn1" onclick="showmodal()">Show</button>
-    
-    
+    <button class="btn btn2" id="myBtn" onclick="editmodal()">Add</button>
+    <button class="btn btn1" id="myBtn1" onclick="showmodal()">Show</button>
+    <button class="btn btn1" id="myBtn2" onclick="calculatemodal()">Calculte</button>
+        
     <div class="col-sm-8">
         <table class="table">
             <thead>
@@ -67,23 +85,48 @@
     </div>
 
 
+    <div id="calculate" class="modal">
+        <div class="modal-content2">
+            <span class="close3">&times;</span>
+            <div class="col-sm-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Total Expense</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each memberTotal}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{values}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
 
     <div id="edit" class="modal">
         <div class="modal-content">
             <span class="close2">&times;</span>
-                <form action="/edit" method="POST">
-                    <div class="form-group">
+            <form action="/edit" method="POST" class="box">
+                <center>
+                    <div class="form-group thumbnail">
                         <label for="Item Name">Item Name</label>
-                        <input type="text" class="form-control" placeholder="Item Name" name="itemName">
-                        <input type="hidden" name="idUser" value="{{email}}">
+                        <input required type="text" class="form-control" placeholder="Item Name" name="itemName">
+                        <input required type="hidden" name="idUser" value="{{email}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group thumbnail">
                         <label for="Price">Price</label>
-                        <input type="number" class="form-control"  placeholder="Price" name="itemPrice">
+                        <input required type="number" class="form-control"  placeholder="Price" name="itemPrice">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                </center>
+            </form>
         </div>
     </div>
 </div>
