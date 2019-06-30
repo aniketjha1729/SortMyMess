@@ -1,19 +1,24 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const dataSchema = new mongoose.Schema({
-    user:{
-        type: Schema.Types.ObjectId,
-        ref: 'members'
+    item: [{
+        type: Schema.Types.String,
+    }],
+    price: [{
+        type: Schema.Types.Number,
+    }],
+    
+    userId:{
+        type: String,
+        //required:true
     },
-
-    item:{
+    emailId:{
         type:String,
-        required:true
     },
-    price:{
-        type:Number,
-        required:true
+    nameId:{
+        type:String
     }
-});
+    
+}, { usePushEach: true });
 const data = mongoose.model('data', dataSchema);
 module.exports = data;

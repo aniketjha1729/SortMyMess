@@ -41,3 +41,33 @@ function editmodal() {
         }
     }
 }
+
+function showmodal() {
+  var modal1 = document.getElementById("show");
+  //console.log(modal);
+  var span1 = document.getElementsByClassName("close")[0];
+  modal1.style.display = "block";
+  span1.onclick = function() {
+    modal1.style.display = "none";
+  };
+  window.onclick = function(event) {
+    if (event.target == modal1) {
+      modal1.style.display = "none";
+    }
+  };
+}
+
+function calculatemodal() {
+  var modal1 = document.getElementById("calculate");
+  //console.log(modal);
+  var span1 = document.getElementsByClassName("close3")[0];
+  modal1.style.display = "block";
+  span1.onclick = function() {
+    modal1.style.display = "none";
+  };
+  window.onclick = function(event) {
+    if (event.target == modal1) {
+      modal1.style.display = "none";
+    }
+  };
+}

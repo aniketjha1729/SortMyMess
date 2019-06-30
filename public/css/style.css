@@ -38,9 +38,24 @@ border: 1px solid #888;
 width: 50%;
 }
 
+.modal-content2 {
+background-color: black;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+width: 50%;
+}
+.modal-content1 {
+background-color: black;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+width: 80%;
+}
+
 /* The Close Button */
 .close2 {
-color: #aaaaaa;
+color: red;
 margin-left: 95%;
 font-size: 28px;
 font-weight: bold;
@@ -49,13 +64,13 @@ font-weight: bold;
 
 .close2:hover,
 .close2:focus {
-color: red;
+color: #000;
 text-decoration: none;
 cursor: pointer;
 }
 
 .close {
-color: #aaaaaa;
+color: red;
 margin-left: 95%;
 font-size: 28px;
 font-weight: bold;
@@ -64,13 +79,29 @@ font-weight: bold;
 
 .close:hover,
 .close:focus {
+color: #000;
+text-decoration: none;
+cursor: pointer;
+}
+
+
+.close3 {
 color: red;
+margin-left: 95%;
+font-size: 28px;
+font-weight: bold;
+}
+
+
+.close3:hover,
+.close3:focus {
+color: #000;
 text-decoration: none;
 cursor: pointer;
 }
 
 body{
-padding-top: 70px;
+/* padding-top: 70px; */
 background: black;
 /* background: url(https://images.unsplash.com/photo-1516571748831-5d81767b788d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80); */
 /* background-size: auto; */
