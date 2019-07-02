@@ -1,19 +1,16 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar sticky-top navbar-expand-sm navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="#">About <i class="fab fa-connectdevelop"></i></a>
-        <a class="navbar-brand" href="#">Welcome {{name}}</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <a class="navbar-brand" href="#" style="color:rgba(199, 16, 255, 0.884); font-weight:bold">WELC<i class="far fa-smile"></i>ME {{name}}</a>
 
-        <div class="collapse navbar-collapse" id="navbarColor03">
-            <ul class="nav navbar-nav mr-auto navStyle">
-            <li class="nav-item">
-                <a class="nav-link" href="/logout">Logout <i class="fas fa-sign-out-alt"></i></a>
-                {{!-- <button type="submit" class="btn btn-danger">Logout</button> --}}
-            </li>
+        <div class="justify-content-end" id="navbarColor03">
+            <ul class="nav navbar-nav navStyle">
+                <li class="nav-item">
+                    <a style="padding: 0px 20px; margin: 1px;" class="nav-link btn btn1" href="/logout">Logout <i class="fas fa-sign-out-alt"></i></a>
+                    {{!-- <button type="submit" class="btn btn-danger">Logout</button> --}}
+                </li>
             </ul>
         </div>
     </div>
@@ -31,34 +28,36 @@
       <div>  {{values}} </div>
       <div>  {{name}} </div>
     {{/each}} --}}
-    <button id="myBtn" onclick="editmodal()">Add</button>
-    <button id="myBtn1" onclick="showmodal()">Show</button>
-    <button id="myBtn2" onclick="calculatemodal()">Calculte</button>
-    
-    <div class="col-sm-8 thumbnail">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>MessId</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th> 
-                </tr>
-            </thead>
-            <tbody>
-                {{#each memberUser}}
+    <center>
+        <button id="myBtn" onclick="editmodal()" class="btn btn3">Add</button>
+        <button id="myBtn1" onclick="showmodal()" class="btn btn3">Show</button>
+        <button id="myBtn2" onclick="calculatemodal()" class="btn btn3">Calculte</button>
+    </center>
+    <div class="row justify-content-sm-center">
+        <div class="col-sm-8 thumbnail">
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>{{messid1}}</td>
-                        <td>{{name}}</td>
-                        <td>{{email}}</td>
-                        <td>{{phone}}</td>
-                        <td>{{member}}</td>
+                        <th>MessId</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th> 
                     </tr>
-                {{/each}}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {{#each memberUser}}
+                        <tr>
+                            <td>{{messid1}}</td>
+                            <td>{{name}}</td>
+                            <td>{{email}}</td>
+                            <td>{{phone}}</td>
+                            <td>{{member}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
     </div>
-
 
     <div id="show" class="modal thumbnail">
         <div class="modal-content1">
@@ -78,7 +77,6 @@
                             <td>{{nameId}}</td>
                             <td>{{item}}</td>
                             <td>{{price}}</td>
-                           
                         </tr>
                         {{/each}}
                     </tbody>
@@ -86,8 +84,6 @@
             </div>
         </div>
     </div>
-
-
     <div id="calculate" class="modal thumbnail">
         <div class="modal-content2">
             <span class="close3">&times;</span>
@@ -111,27 +107,23 @@
             </div>
         </div>
     </div>
-
-
-
-
     <div id="edit" class="modal">
         <div class="modal-content">
             <span class="close2">&times;</span>
-                <form action="/edit" method="POST" class="box">
-                    <center>
-                        <div class="form-group thumbnail">
-                            <label for="Item Name">Item Name</label>
-                            <input type="text" class="form-control" placeholder="Item Name" name="itemName">
-                            <input type="hidden" name="idUser" value="{{email}}">
-                        </div>
-                        <div class="form-group thumbnail">
-                            <label for="Price">Price</label>
-                            <input type="number" class="form-control"  placeholder="Price" name="itemPrice">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </center>
-                </form>
+            <form action="/edit" method="POST" class="box">
+                <center>
+                    <div class="form-group thumbnail">
+                        <label for="Item Name">Item Name</label>
+                        <input type="text" class="form-control" placeholder="Item Name" name="itemName">
+                        <input type="hidden" name="idUser" value="{{email}}">
+                    </div>
+                    <div class="form-group thumbnail">
+                        <label for="Price">Price</label>
+                        <input type="number" class="form-control"  placeholder="Price" name="itemPrice">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </center>
+            </form>
         </div>
     </div>
 </div>
