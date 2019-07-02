@@ -6,14 +6,14 @@ const bcrypt = require('bcryptjs');
 router.get('/', (req, res) => {
     res.render('index'); 
 });
-router.post("/register",(req,res)=>{
-    res.send("Working");
-});
+
 router.post("/registermess", (req, res) => {
     const { messid, messname, password } = req.body;
     User.findOne({ messid: messid }).then(user => {
         if (user) {
-            res.send("MessId already exists");
+            req.flash("error_msg", 'MessId ALready Taken');
+            res.redirect("/");
+            
         } else {
             const newUser = new User({
                 messid,

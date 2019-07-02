@@ -29,6 +29,7 @@
 // }
 function editmodal() {
     var modal = document.getElementById("edit");
+    //console.log(modal);
     var span = document.getElementsByClassName("close2")[0];
     modal.style.display = "block";
     span.onclick = function () {
@@ -41,32 +42,32 @@ function editmodal() {
     }
 }
 
-function showmodal(){
-    var modal = document.getElementById("show");
-    var span = document.getElementsByClassName("close")[0];
-    modal.style.display = "block";
-    span.onclick = function() {
-      modal.style.display = "none";
-    };
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
+function showmodal() {
+  var modal1 = document.getElementById("show");
+  //console.log(modal);
+  var span1 = document.getElementsByClassName("close")[0];
+  modal1.style.display = "block";
+  span1.onclick = function() {
+    modal1.style.display = "none";
+  };
+  window.onclick = function(event) {
+    if (event.target == modal1) {
+      modal1.style.display = "none";
+    }
+  };
 }
 
-
 function calculatemodal() {
-    var modal1 = document.getElementById("calculate");
-    //console.log(modal);
-    var span1 = document.getElementsByClassName("close3")[0];
-    modal1.style.display = "block";
-    span1.onclick = function () {
-        modal1.style.display = "none";
-    };
-    window.onclick = function (event) {
-        if (event.target == modal1) {
-            modal1.style.display = "none";
-        }
-    };
+  var modal1 = document.getElementById("calculate");
+  //console.log(modal);
+  var span1 = document.getElementsByClassName("close3")[0];
+  modal1.style.display = "block";
+  span1.onclick = function() {
+    modal1.style.display = "none";
+  };
+  window.onclick = function(event) {
+    if (event.target == modal1) {
+      modal1.style.display = "none";
+    }
+  };
 }

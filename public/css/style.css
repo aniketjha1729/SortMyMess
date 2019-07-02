@@ -3,20 +3,17 @@
   height: 800px;
   display: flex;
   justify-content:center;
-
 }
 .div-style{
   border: 2px solid blue;
   width: 200px;
 }
-
 .input-style{
   width: 100%;
 }
 .form-style{
   border: 2px solid brown;
 }
-
 .modal {
 display: none;
 position: fixed; /* Stay in place */
@@ -28,49 +25,71 @@ overflow: auto; /* Enable scroll if needed */
 background-color: rgb(0,0,0); /* Fallback color */
 background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-
 /* Modal Content */
 .modal-content {
 background-color: black;
+opacity: 0.88;
 margin: auto;
 padding: 20px;
 border: 1px solid #888;
 width: 50%;
 }
-
+.modal-content2 {
+background-color: black;
+opacity: 0.88;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+width: 50%;
+}
+.modal-content1 {
+background-color: black;
+opacity: 0.88;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+width: 80%;
+}
 /* The Close Button */
 .close2 {
-color: #aaaaaa;
+color: red;
 margin-left: 95%;
 font-size: 28px;
 font-weight: bold;
 }
-
-
 .close2:hover,
 .close2:focus {
-color: red;
+color: lightgreen;
 text-decoration: none;
 cursor: pointer;
 }
-
 .close {
-color: #aaaaaa;
+color: red;
 margin-left: 95%;
 font-size: 28px;
 font-weight: bold;
 }
-
-
 .close:hover,
 .close:focus {
+color: lightgreen;
+text-decoration: none;
+cursor: pointer;
+}
+.close3 {
 color: red;
+margin-left: 95%;
+font-size: 28px;
+font-weight: bold;
+}
+.close3:hover,
+.close3:focus {
+color: lightgreen;
 text-decoration: none;
 cursor: pointer;
 }
 
 body{
-padding-top: 70px;
+/* padding-top: 70px; */
 background: black;
 /* background: url(https://images.unsplash.com/photo-1516571748831-5d81767b788d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80); */
 /* background-size: auto; */
@@ -91,7 +110,7 @@ color: #2c3e50;
 background: #ecf0f1;
 padding: 0%;
 }
-.navbar-inverse{
+/* .navbar-inverse{
 background: #8664ffea;
 }
 .navbar-inverse .navbar-brand{
@@ -99,7 +118,7 @@ color: white;
 }
 .navbar-inverse .navbar-nav>li>a{
 color: white;
-}
+} */
 .form-control1{
 width: 50%;
 }
@@ -127,7 +146,7 @@ padding: 14px 10px;
 width: 90%;
 outline: none;
 color: whitesmoke;
-/* border-radius: 24px; */
+border-radius: 24px;
 transition: 0.25s;
 height: 35px;
 }
@@ -141,7 +160,7 @@ padding: 14px 10px;
 width: 100%;
 outline: none;
 color: whitesmoke;
-/* border-radius: 24px; */
+border-radius: 24px;
 transition: 0.25s;
 }
 textarea:focus{
@@ -187,7 +206,7 @@ padding: 14px 10px;
 width: 100%;
 outline: none;
 color: whitesmoke;
-/* border-radius: 24px; */
+border-radius: 24px;
 transition: 0.25s;
 }
 .boxDisabled input::placeholder{
@@ -271,5 +290,5 @@ height: 0%;
 font-size: 20px;
 }
 .myalert{
-  border: 2px solid red;
+  width: 40% !important;
 }

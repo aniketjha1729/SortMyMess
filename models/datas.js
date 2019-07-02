@@ -7,17 +7,18 @@ const dataSchema = new mongoose.Schema({
     price: [{
         type: Schema.Types.Number,
     }],
-
-    userId: {
+    
+    userId:{
         type: String,
+        //required:true
     },
-    emailId: {
-        type: String,
+    emailId:{
+        type:String,
     },
-    nameId: {
-        type: String
+    nameId:{
+        type:String
     }
-
+    
 }, { usePushEach: true });
 const data = mongoose.model('data', dataSchema);
 module.exports = data;
