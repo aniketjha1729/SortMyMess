@@ -23,22 +23,26 @@
 </nav>
 
 <div class="container" style="padding-top: 70px;">
+    <center>
     {{#if error_msg}}
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <div class="alert alert-danger alert-dismissible fade show myalert" role="alert">
         {{error_msg}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     {{/if}}
+    </center>
+    <center>
     {{#if success_msg}}
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="alert alert-success alert-dismissible fade show myalert" role="alert">
         {{success_msg}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     {{/if}}
+    </center>
     <form class="box" action="/member_reg" method="POST" onsubmit="Mmessage()">
         <center>
             <div class="row justify-content-sm-center">
@@ -72,10 +76,6 @@
                     <input required type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter a password..." name="password">
                 </div>
             </div><br>
-                {{!-- <div class="row col-sm-8 col-sm-offset-2 thumbnail">
-                    <label class="label" for="exampleInputPassword1">Confirm Password</label>
-                    <input required type="password" class="form-control" id="exampleInputPassword1" placeholder="Please re-enter the password..." name="password">
-                </div> --}}
             <div class="row justify-content-sm-center">
                 <div class="col-sm-8">
                     <button type="submit" class="btn btn4">Add Member <i class="fas fa-user-plus"></i></button>
