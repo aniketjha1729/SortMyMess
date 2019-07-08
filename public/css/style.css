@@ -292,3 +292,6 @@ font-size: 20px;
 .myalert{
   width: 40% !important;
 }
+.nameId{
+  display:none;
+}
