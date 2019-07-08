@@ -56,31 +56,17 @@
         </div>
     </div>
 
-    <div id="show" class="modal thumbnail">
-        <div class="modal-content1">
-            <span class="close">&times;</span>
-            <div class="col-sm-8">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Items</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{#each dataUser}}
-                        <tr>
-                            <td>{{nameId}}</td>
-                            <td>{{item}}</td>
-                            <td>{{price}}</td>
-                        </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    <div class="container thumbnail">
+        {{#each dataUser}}
+        
+            <td class="nameId">{{nameId}}</td>
+            <div class="item" style="display:none">{{item}}</div>
+            <div class="price" style="display:none">{{price}}</div>
+        
+        {{/each}}
+        <div id="data"></div>
     </div>
+                   
     <div id="calculate" class="modal thumbnail">
         <div class="modal-content2">
             <span class="close3">&times;</span>

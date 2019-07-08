@@ -23,34 +23,34 @@
 </nav>
 <div class="container" style="padding-top: 70px;">
     <center>
-    {{#if success_msg}}
-        <div class="alert alert-success alert-dismissible fade show myalert" role="alert">
-            {{success_msg}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    {{/if}}
+        {{#if success_msg}}
+            <div class="alert alert-success alert-dismissible fade show myalert" role="alert">
+                {{success_msg}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {{/if}}
     </center>
     <center>
-    {{#if error_msg}}
+        {{#if error_msg}}
+            <div class="alert alert-danger alert-dismissible fade show myalert" role="alert">
+                {{error_msg}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {{/if}}
+    </center>
+    <center>
+        {{#if message}}
         <div class="alert alert-danger alert-dismissible fade show myalert" role="alert">
-            {{error_msg}}
+            {{message}}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-    {{/if}}
-    </center>
-    <center>
-    {{#if message}}
-    <div class="alert alert-danger alert-dismissible fade show myalert" role="alert">
-        {{message}}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    {{/if}}
+        {{/if}}
     </center>
     <form class="box" action="/member_signin" method="post" onsubmit="Mmessage()">
         <center>
