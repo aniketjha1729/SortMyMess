@@ -57,46 +57,28 @@
     </div>
 
     <div class="container thumbnail">
-        <div class="row">
-        {{#each dataUser}}
-            <div style="background-color:blue" class="col-sm-6">{{nameId}}</div>
-        {{/each}}
-        </div>
-        <div class="row">
-            <div style="background-color:blue" class="col-sm-3">Item</div>
-            <div style="background-color:blue" class="col-sm-3">Price</div>
-            <div style="background-color:blue" class="col-sm-3">Item</div>
-            <div style="background-color:blue" class="col-sm-3">Price</div>
-        </div>
-        <div class="row">
-        {{#each dataUser}}
-            <div style="background-color:blue" class="col-sm-3">{{item}}</div>
-            <div style="background-color:blue" class="col-sm-3">{{price}}</div>
-        {{/each}}
-        </div>
-        <br>
-        <table border="1">
-        {{#each dataUser}}
+        <table class="table table-bordered table-dark">
             <thead>
                 <tr>
-                    <th style="width:200px">{{nameId}}</th>
+                    {{#each dataUser}}
+                    <th colspan="2">{{nameId}}</th>
+                    {{/each}}
                 </tr>
             </thead>
-        {{!-- </table>
-        {{/each}}<br>
-        {{#each dataUser}}
-        <table border="1"> --}}
             <tbody>
                 <tr>
-                    <td style="width:100px">Item</td>
-                    <td style="width:100px">Price</td>
+                    {{#each dataUser}}
+                    <td>Item</td>
+                    <td>Price</td>
+                    {{/each}}
                 </tr>
                 <tr>
-                    <td style="width:100px">{{item}}</td>
-                    <td style="width:100px">{{price}}</td>
+                    {{#each dataUser}}
+                    <td>{{item}}</td>
+                    <td>{{price}}</td>
+                    {{/each}}
                 </tr>
             </tbody>
-        {{/each}}
         </table>
             {{!-- <td class="nameId">{{nameId}}</td>
             <div class="item" style="display:none">{{item}}</div>
