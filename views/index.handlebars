@@ -47,7 +47,7 @@
                 <div class="col-sm-8 thumbnail">
                     <label class="label" for="exampleInputEmail2">Mess Name</label>
                     <input required onkeypress="return names(event,this);" type="text" onkeypress="return NAME(event,this);" class="form-control input" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter name of the mess..." name="messname">
-                    {{!-- change ids --}}
+                   
                 </div>
             </div><br>
             <div class="row justify-content-sm-center">
@@ -56,10 +56,7 @@
                     <input required type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter a common password for all mess members..." name="password">
                 </div>
             </div><br>
-            {{!-- <div class="row col-sm-8 col-sm-offset-2 thumbnail">
-                <label class="label" for="exampleInputPassword2">Confirm Password</label>
-                <input required type="password" class="form-control" id="exampleInputPassword2" placeholder="Please re-enter the password..." name="password">
-            </div> --}}
+           
             <div class="row justify-content-sm-center">
                 <div class="col-sm-8">
                     <button type="submit" class="btn btn3">Register <i class="fas fa-users-cog"></i></button>
@@ -69,25 +66,3 @@
     </form>
 </div>
 
-{{!-- 
-    <div class="container">
-        <form action="/registermess" method="POST">
-            <div class="form-group">
-                <label for="exampleInputEmail1">MessId</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="MessId" name="messid">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">MessName</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="MessName" name="messname">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
-            </div>
-            <button type="submit" class="btn btn-primary">Register</button>
-            <a class="btn btn-primary" href="/member_reg" role="button">Signup</a>
-            <a class="btn btn-primary" href="/member_signin" role="button">SigIn</a>
-
-        </form>
-
-    </div> --}}
