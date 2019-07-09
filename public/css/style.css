@@ -125,7 +125,9 @@ width: 50%;
 .form-control:focus {
 border: 3px solid red;
 }
-
+#data{
+  color: #fff !important;
+}
 
 fieldset
 {
