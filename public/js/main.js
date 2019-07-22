@@ -80,7 +80,8 @@ function showmodal() {
   var divison = document.getElementById("data")
   for (var i = 0; i < item_length; i++) {
     var table_name = document.createElement("table");
-    table_name.style.border = "2px solid red"
+    // table_name.style.border = "2px solid red"
+    table_name.classList.add("datatable1");
     var user_name=document.getElementsByClassName("nameId")[i];
     var item_name = document.getElementsByClassName("item")[i];
     var item_price = document.getElementsByClassName("price")[i];
@@ -105,8 +106,8 @@ function showmodal() {
       table_name.appendChild(table_row)
     }
     divison.appendChild(table_name)
-    divison.appendChild(document.createElement("br"))
-    console.log(temp_array1)
-    console.log(temp_array2)
+    divison.appendChild(document.createElement("hr"))
+    // console.log(temp_array1)
+    // console.log(temp_array2)
   }
 }

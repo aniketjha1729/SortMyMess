@@ -297,3 +297,28 @@ font-size: 20px;
 .nameId{
   display:none;
 }
+#myBtn{
+  width: 100%;
+}
+#myBtn1{
+  width: 100%;
+}
+#myBtn2{
+  width: 100%;
+}
+.datatable {
+  width: 100%;
+  border: 1px solid #ddd;
+}
+.datatable1 {
+  width: 100%;
+  /* border: 1px solid #ddd; */
+}
+th,td {
+  text-align: center;
+  padding: 8px;
+  color: #fff;
+}
+/* hr{
+  color: #ddd;
+} */
